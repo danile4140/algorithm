@@ -6,7 +6,6 @@
     @time: 2018/11/11
     @dec: 各种排序算法和查找算法
 """
-import queue
 
 
 def binary_search(list, item):
@@ -56,7 +55,7 @@ def greedy_algorithm():
     stations["a"] = set([1, 2, 3, 4])
     stations["b"] = set([2, 5, 6])
     stations["c"] = set([2, 3, 4, 5, 6, 7])
-    stations["d"] = set([5, 6, 7,9])
+    stations["d"] = set([5, 6, 7, 9])
     final_stations = set()
     need_coverd = set()
     for k, v in stations.items():
@@ -72,6 +71,7 @@ def greedy_algorithm():
         final_stations.add(best_station)
         need_coverd -= states_coverd
     print(final_stations)
+
 
 def sum(list):
     if list:

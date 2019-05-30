@@ -93,6 +93,11 @@ class LinkedQueue:
         print(cur.data)
 
 
+class CircleQueue:
+    """循环队列"""
+    pass
+
+
 if __name__ == '__main__':
     sa = SequenceQueue(5)
     sa.enqueue(3)
