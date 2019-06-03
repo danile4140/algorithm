@@ -20,12 +20,13 @@ def bubble_sort(l: list) -> list:
             if l[i] > l[i + 1]:
                 l[i], l[i + 1] = l[i + 1], l[i]
                 flag = True
+            print(l)
         n -= 1
         if not flag:
             break
-        print(l)
     return l
 
 if __name__ == '__main__':
     l = [5, 4, 3, 6, 3, 7, 5, 6]
+    print(l)
     print(bubble_sort(l))

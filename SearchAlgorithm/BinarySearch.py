@@ -13,7 +13,7 @@
 
 def binary_search(sorted_array, low, high, value):
     """
-    二分查找
+    二分查找,递归
     :param sorted_array: 有序的数组
     :param value: 查找的值
     :return: 返回值的index
@@ -70,7 +70,8 @@ def sqrt(num, low, high, digital=6):
     #     if sign == ans:
     #         break
     # print(ans)
-    r = 1/10**digital
+    r = 1 / 10 ** digital
+
     mid = (low + high) / 2
     if num - mid * mid < 0:
         return sqrt(num, low, (mid + high) / 2, digital)
@@ -79,9 +80,116 @@ def sqrt(num, low, high, digital=6):
 
     return "%.6f" % mid
 
+
+def b_search_1(array, value):
+    """查找第一个值等于给定值的元素位置"""
+    low = 0
+    high = len(array) - 1
+    index = -1
+    while low <= high:
+        mid = int((low + high) / 2)
+        if array[mid] == value:
+            index = mid
+            high = mid - 1
+        elif array[mid] > value:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return index
+
+
+def b_search_1_1(array, value):
+    """查找第一个值等于给定值的元素位置(教程)"""
+    low = 0
+    high = len(array) - 1
+    while low <= high:
+        mid = int((low + high) / 2)
+        if array[mid] > value:
+            high = mid - 1
+        elif array[mid] < value:
+            low = mid + 1
+        else:
+
+            if array[mid - 1] < value or mid == 0:
+                return mid
+            else:
+                high = mid - 1
+    return -1
+
+
+def b_search_2(array, value):
+    """查找最后一个值等于给定值的元素位置"""
+    low = 0
+    high = len(array) - 1
+    index = -1
+    while low <= high:
+        mid = int((low + high) / 2)
+        if array[mid] == value:
+            index = mid
+            low = mid + 1
+        elif array[mid] > value:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return index
+
+
+def b_search_3(array, value):
+    """查找第一个大于等于给定值的元素位置"""
+    low = 0
+    high = len(array) - 1
+    index = -1
+    while low <= high:
+        mid = int((low + high) / 2)
+        if array[mid] == value:
+            index = mid
+            high = mid - 1
+        elif array[mid] > value:
+            index = mid
+            high = mid - 1
+        else:
+            low = mid + 1
+    return index
+
+
+def b_search_3_3(array, value):
+    """查找第一个大于等于给定值的元素位置(教程)"""
+    low = 0
+    high = len(array) - 1
+    while low <= high:
+        mid = int((low + high) / 2)
+        if array[mid] >= value:
+            if array[mid - 1] < value or mid == 0:
+                return mid
+            else:
+                high = mid - 1
+        else:
+            low = mid + 1
+    return -1
+
+
+def b_search_4(array, value):
+    """查找最后一个小于等于给定值的元素位置"""
+    low = 0
+    high = len(array) - 1
+    index = -1
+    while low <= high:
+        mid = int((low + high) / 2)
+        if array[mid] == value:
+            index = mid
+            low = mid + 1
+        elif array[mid] < value:
+            index = mid
+            low = mid + 1
+        else:
+            high = mid - 1
+    return index
+
+
 if __name__ == '__main__':
     # l = numpy.random.randint(10, size=10)
-    l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(b_search(l, 81))
-    print(binary_search(l, 0, len(l) - 1, 8))
-    print(sqrt(2, 0, 2))
+    l = [1, 3, 3, 5, 5, 5, 7, 8, 9, 10]
+    # print(b_search(l, 81))
+    # print(binary_search(l, 0, len(l) - 1, 8))
+    # print(sqrt(2, 0, 2))
+    print(b_search_3_3(l, 5))
