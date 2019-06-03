@@ -117,6 +117,21 @@ def b_search_1_1(array, value):
     return -1
 
 
+def b_search_1_2(array, value):
+    """查找第一个值等于给定值的元素位置(烧脑版)"""
+    low = 0
+    high = len(array) - 1
+    while low <= high:
+        mid = int((low + high) / 2)
+        if array[mid] >= value:
+            high = mid - 1
+        else:
+            low = mid + 1
+    if low < len(array) and array[low] == value:
+        return low
+    return -1
+
+
 def b_search_2(array, value):
     """查找最后一个值等于给定值的元素位置"""
     low = 0
@@ -192,4 +207,4 @@ if __name__ == '__main__':
     # print(b_search(l, 81))
     # print(binary_search(l, 0, len(l) - 1, 8))
     # print(sqrt(2, 0, 2))
-    print(b_search_3_3(l, 5))
+    print(b_search_1_2(l, 5))
