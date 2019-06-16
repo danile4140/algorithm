@@ -38,6 +38,7 @@ def post_order(root):
 
 
 def level_order(root):
+    """层序遍历"""
     # 如果根节点为空，则返回空列表
     if root is None:
         return
